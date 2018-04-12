@@ -382,6 +382,14 @@ Bool_t AliTRDPIDParams::AliTRDPIDCentrality::GetThresholdParameters(Int_t ntrack
     AliDebug(1, Form("Threshold params found: NTracklets %d, Electron Efficiency %f, Charge %d", parResult->GetNTracklets(), parResult->GetElectronEfficiency(), parResult->GetCharge()));
     
     memcpy(params, parResult->GetThresholdParams(), sizeof(Double_t) * 4);
+
+
+    Double_t epsilon=0.0001;
+    if(((params[0]+999)<epsilon)&&((params[1]+999)<epsilon)&&((params[2]+999)<epsilon)&&((params[3]+999)<epsilon)){
+      AliError("Threshold Parameters set to -999: Parameters not available for this configuration.");
+      return kFALSE;
+    }
+
     return kTRUE;
 }
 
