@@ -116,8 +116,7 @@ Bool_t AliTRDPIDParams::GetThresholdParameters(Int_t ntracklets, Double_t effici
         return kFALSE;
     }
 
-    cent->GetThresholdParameters(ntracklets, efficiency, params, charge);
-    return kTRUE;
+    return cent->GetThresholdParameters(ntracklets, efficiency, params, charge);
 }
 
 //____________________________________________________________
